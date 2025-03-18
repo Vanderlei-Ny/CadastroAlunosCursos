@@ -1,16 +1,21 @@
-package dev.instituicao.CadastroAlunosCursos;
+package Cursos;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity //todo o código será uma entidade com atributos bem definidos, OU SEJA, UMA CLASSE EM UMA ENTIDADE 
-@Table(name ="Curso")
+@Table(name ="Table_de_cursos")
 public class CursoModel {
 
-	Long id; //longa quantia de id's, OBS: O JAVA EM SÍ ADICIONA OS ID'S AUTOMATICAMENTE
-	String nomeCurso; 
-	int quantiaSemestres;
-	int semestreAtual;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; //longa quantia de id's, OBS: O JAVA EM SÍ ADICIONA OS ID'S AUTOMATICAMENTE
+	private String nomeCurso; 
+	private int quantiaSemestres;
+	private int semestreAtual;
 	
 	
 	public CursoModel() {

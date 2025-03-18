@@ -1,4 +1,4 @@
-package dev.instituicao.CadastroAlunosCursos;
+package Alunos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,11 +12,11 @@ public class AlunoModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //CRIA - SE UMA ESTRATÉGIA PARA A CONTAGEM DO ID SER COM NÚMERO INTEIROS
-	Long id; //NOVIDADE! lONG É  USADO PARA INT, PORÉM DE MANEIRA LONGA, MUITOS CADASTROS POR EX. A GENTE SÓ DECLARA, O JAVA INCREMENTA
-	String nome;
-	String email;
-	int idade;
-	int semestreAtual;
+	private Long id; //NOVIDADE! lONG É  USADO PARA INT, PORÉM DE MANEIRA LONGA, MUITOS CADASTROS POR EX. A GENTE SÓ DECLARA, O JAVA INCREMENTA
+	private String nome;
+	private String email;
+	private int idade;
+	private int semestreAtual;
 	
 	public AlunoModel() {
 		
