@@ -14,14 +14,6 @@ public class Controller {
 	public String boasVindas() {
 		return "Hello SpringBoot!";
 	}
-
-	@GetMapping("Cagando")
-	public int Calculando(int Calculando) {
-		this.Calculando = 12+2321+12;
-		return Calculando;
-	}
-	
-	
 	
 	
 
