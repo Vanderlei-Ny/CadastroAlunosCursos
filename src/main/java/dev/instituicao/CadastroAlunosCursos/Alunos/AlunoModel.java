@@ -1,9 +1,12 @@
-package Alunos;
+package dev.instituicao.CadastroAlunosCursos.Alunos;
 
+import dev.instituicao.CadastroAlunosCursos.Cursos.CursoModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity //transformo toda essa classe em uma endidade do pacote.
@@ -17,6 +20,10 @@ public class AlunoModel {
 	private String email;
 	private int idade;
 	private int semestreAtual;
+	
+	@ManyToOne // --> um aluno para um curso
+	@JoinColumn(name = "Cursos_id")
+	private CursoModel cursos;
 	
 	public AlunoModel() {
 		

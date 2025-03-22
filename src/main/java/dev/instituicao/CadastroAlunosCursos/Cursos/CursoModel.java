@@ -1,4 +1,4 @@
-package Cursos;
+package dev.instituicao.CadastroAlunosCursos.Cursos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
