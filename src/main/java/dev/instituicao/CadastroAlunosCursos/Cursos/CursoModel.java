@@ -1,13 +1,23 @@
 package dev.instituicao.CadastroAlunosCursos.Cursos;
 
+import java.util.List;
+
+import dev.instituicao.CadastroAlunosCursos.Alunos.AlunoModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity //todo o código será uma entidade com atributos bem definidos, OU SEJA, UMA CLASSE EM UMA ENTIDADE 
 @Table(name ="Table_de_cursos")
+@Data // -> subtitui os getter e setters
+@NoArgsConstructor
+@AllArgsConstructor 
 public class CursoModel {
 
 	@Id
@@ -17,40 +27,8 @@ public class CursoModel {
 	private int quantiaSemestres;
 	private int semestreAtual;
 	
-	
-	public CursoModel() {
-		
-	}
-	
-	public CursoModel (String nomeCurso, int quantiaSemestres, int semestreAtual) {
-		this.nomeCurso = nomeCurso;
-		this.quantiaSemestres = quantiaSemestres;
-		this.semestreAtual = semestreAtual;
-	}
-
-	public String getNomeCurso() {
-		return nomeCurso;
-	}
-
-	public void setNomeCurso(String nomeCurso) {
-		this.nomeCurso = nomeCurso;
-	}
-
-	public int getQuantiaSemestres() {
-		return quantiaSemestres;
-	}
-
-	public void setQuantiaSemestre(int quantiaSemestre) {
-		this.quantiaSemestres = quantiaSemestre;
-	}
-
-	public int getSemestreAtual() {
-		return semestreAtual;
-	}
-
-	public void setSemestreAtual(int semestreAtual) {
-		this.semestreAtual = semestreAtual;
-	}
+	@OneToMany(mappedBy = "cursos")
+	private List <AlunoModel> alunos;
 	
 	
 }
