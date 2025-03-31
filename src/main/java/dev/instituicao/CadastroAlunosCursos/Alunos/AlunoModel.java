@@ -13,7 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity //Transforma toda essa classe em uma endidade do pacote.
-@Table(name = "Tabela_de_alunos")
+@Table(name = "alunos")
 @Data // --> cria os Getters e Setters
 @NoArgsConstructor // --> deixa a classe sem os parametros dentro do método construtor
 @AllArgsConstructor // --> faz a sobrecarga com os parametros -> Fica invisivel, mas existe!
@@ -27,8 +27,9 @@ public class AlunoModel {
 	private int idade;
 	private int semestreAtual;
 	
-	@ManyToOne // --> um aluno para um curso
-	@JoinColumn(name = "Cursos_id")
-	private CursoModel cursos;
+	@ManyToOne
+	@JoinColumn(name = "curso_id")
+	private CursoModel curso;
+
 
 }
