@@ -1,8 +1,9 @@
-package dev.instituicao.CadastroAlunosCursos.Cursos;
+package dev.instituicao.CadastroAlunosCursos.model;
 
 import java.util.List;
 
-import dev.instituicao.CadastroAlunosCursos.Alunos.AlunoModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,10 +24,13 @@ public class CursoModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; //longa quantia de id's, OBS: O JAVA EM SÍ ADICIONA OS ID'S AUTOMATICAMENTE
+	
 	private String nomeCurso; 
+	
 	private int quantiaSemestres;
 	
 	@OneToMany(mappedBy = "curso")
+	@JsonIgnore
 	private List<AlunoModel> alunos;
 
 	
