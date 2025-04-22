@@ -1,9 +1,9 @@
 package dev.instituicao.CadastroAlunosCursos.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.instituicao.CadastroAlunosCursos.model.CursoModel;
 import dev.instituicao.CadastroAlunosCursos.service.CursoService;
 
-@Controller
 @RestController
 @RequestMapping("/cursos")
 public class CursoController {
@@ -30,19 +29,17 @@ public class CursoController {
 	
 	@PostMapping("/criarCurso")
 	public CursoModel criarCurso(@RequestBody CursoModel curso) {
-		 System.out.println("Recebido: " + curso); // Log para verificar os valores do objeto curso
-		return cursoService.criarCurso(curso);
+	    System.out.println("Curso recebido: " + curso);
+	    return cursoService.criarCurso(curso);
 	}
+
 	
 	@DeleteMapping("/{id}")
 	public void deletarCurso(@PathVariable Long id) {
 		cursoService.deletarCurso(id);
 	}
 	
-	@GetMapping("/teste")
-	public String testarAPI() {
-	    return "A API está funcionando!";
-	}
+
 
 	
 	

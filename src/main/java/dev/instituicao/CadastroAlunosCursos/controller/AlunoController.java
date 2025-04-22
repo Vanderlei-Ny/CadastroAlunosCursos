@@ -3,7 +3,6 @@ package dev.instituicao.CadastroAlunosCursos.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.instituicao.CadastroAlunosCursos.model.AlunoModel;
 import dev.instituicao.CadastroAlunosCursos.service.AlunoService;
+import jakarta.validation.Valid;
 
-@Controller
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {
@@ -24,10 +23,11 @@ public class AlunoController {
 	@Autowired
 	private AlunoService alunoService;
 	
-	@GetMapping
+	@GetMapping("/listarAlunos")
 	public List<AlunoModel> listarAlunos() {
 		return alunoService.listarAlunos();
 	}
+	
 	@PostMapping("/criarAluno")
 	public AlunoModel criarAluno(@RequestBody AlunoModel aluno) {
 		return alunoService.criarAluno(aluno);

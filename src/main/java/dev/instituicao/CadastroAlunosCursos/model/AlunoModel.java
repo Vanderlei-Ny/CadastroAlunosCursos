@@ -9,12 +9,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity //Transforma toda essa classe em uma endidade do pacote.
 @Table(name = "alunos")
-@Data // --> cria os Getters e Setters
+@Getter
+@Setter
 @NoArgsConstructor // --> deixa a classe sem os parametros dentro do método construtor
 @AllArgsConstructor // --> faz a sobrecarga com os parametros -> Fica invisivel, mas existe!
 public class AlunoModel {
@@ -25,16 +28,15 @@ public class AlunoModel {
 	
 	@Column(name = "nome")
 	private String nome;
-
+	
 	@Column(name = "email")
 	private String email;
 
 	@Column(name = "idade")
 	private int idade;
-
-	@Column(name = "semestre_atual") // Ajuste no nome
+	
+	@Column(name = "semestre_atual")
 	private int semestreAtual;
-
 	
 	@ManyToOne
 	@JoinColumn(name = "curso_id")

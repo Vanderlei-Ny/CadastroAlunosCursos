@@ -13,8 +13,11 @@ import dev.instituicao.CadastroAlunosCursos.repository.CursoRepository;
 @Service
 public class CursoService {
 
-	@Autowired
-	private CursoRepository cursoRepository;
+	private final CursoRepository cursoRepository; 
+	
+	public CursoService(CursoRepository cursoRepository) {
+		this.cursoRepository = cursoRepository;
+	}
 	
 	public List<CursoModel> listarCursos() {
 		return cursoRepository.findAll();

@@ -11,18 +11,21 @@ import dev.instituicao.CadastroAlunosCursos.repository.AlunoRepository;
 @Service
 public class AlunoService {
 
-    @Autowired
-    private AlunoRepository alunoRepository;
-
+	private final AlunoRepository alunoRepo;
+	
+	public AlunoService(AlunoRepository alunoRepository) {
+		this.alunoRepo = alunoRepository;
+	}
+	
     public List<AlunoModel> listarAlunos() {
-        return alunoRepository.findAll();
+        return alunoRepo.findAll();
     }
 
     public AlunoModel criarAluno(AlunoModel aluno) {  // Certifique-se de que este método existe
-        return alunoRepository.save(aluno);
+        return alunoRepo.save(aluno);
     }
 
     public void deletarAluno(Long id) {
-        alunoRepository.deleteById(id);
+    	alunoRepo.deleteById(id);
     }
 }
